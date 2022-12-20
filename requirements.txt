@@ -10,3 +10,4 @@ psutil
 imageio
 imutils
 pandas
+numpy
