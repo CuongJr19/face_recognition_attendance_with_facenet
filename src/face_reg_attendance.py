@@ -96,7 +96,7 @@ def main():
             phase_train_placeholder = tf.get_default_graph().get_tensor_by_name("phase_train:0")
             embedding_size = embeddings.get_shape()[1]
 
-            pnet, rnet, onet = align.detect_face.create_mtcnn(sess, "src/align")
+            pnet, rnet, onet = align.detect_face.create_mtcnn(sess, "align")
 
             people_detected = set()
             person_detected = collections.Counter()
