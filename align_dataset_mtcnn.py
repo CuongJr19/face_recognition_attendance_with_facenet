@@ -35,7 +35,7 @@ import random
 from time import sleep
 
 
-def main():
+def take_face():
     sleep(random.random())
     output_dir = os.path.expanduser("Dataset/FaceData/processed")
     if not os.path.exists(output_dir):
@@ -134,8 +134,8 @@ def main():
     print('Number of successfully aligned images: %d' % nrof_successfully_aligned)
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#   main()
 
 
 # Câu lệnh sử dụng để chạy file này

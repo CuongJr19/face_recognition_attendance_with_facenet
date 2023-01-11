@@ -37,7 +37,7 @@ import pickle
 from sklearn.svm import SVC
 
 
-def main():
+def classifier():
     with tf.Graph().as_default():
 
         with tf.compat.v1.Session() as sess:
@@ -109,5 +109,5 @@ def split_dataset(dataset, min_nrof_images_per_class, nrof_train_images_per_clas
     return train_set, test_set
 
 
-if __name__ == '__main__':
-    main()
+#if __name__ == '__main__':
+#    main()

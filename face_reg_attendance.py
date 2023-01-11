@@ -27,15 +27,6 @@ def datetoday():
 '''
 code phần điểm danh chưa hoàn thiện
 '''
-#### If these directories don't exist, create them
-if not os.path.isdir('Attendance'):
-    os.makedirs('Attendance')
-if not os.path.isdir('static/faces'):
-    os.makedirs('static/faces')
-if f'Attendance-{datetoday()}.csv' not in os.listdir('Attendance'):
-    with open(f'Attendance/Attendance-{datetoday()}.csv', 'w') as f:
-        f.write('Name,Roll,Time')
-
 
 def extract_attendance():
     df = pd.read.csv(f'Attendance/Attendance-{datetoday()}.csv')
@@ -47,7 +38,7 @@ def extract_attendance():
 
 
 def add_attendance(name): # so sánh với cơ sở dữ liệu
-    user = name.split('_')
+    user = name.split(' ')
 
     current_time = datetime.now().strftime("%H:%M:%S")
 
@@ -55,7 +46,7 @@ def add_attendance(name): # so sánh với cơ sở dữ liệu
     username = " ".join(username)
     mssv = user[-1]
     df = pd.read_csv(f'Attendance/Attendance-{datetoday()}.csv')
-    if int(user[-1]) not in list(df['Roll']):
+    if int(mssv) not in list(df['Roll']):
         with open(f'Attendance/Attendance-{datetoday()}.csv', 'a') as f:
             f.write(f'\n{username},{mssv},{current_time}')
 
@@ -142,7 +133,7 @@ def main():
                                 best_name = class_names[best_class_indices[0]]
                                 print("Name: {}, Probability: {}".format(best_name, best_class_probabilities))
 
-                                if best_class_probabilities > 0.65:
+                                if best_class_probabilities > 0.8:
                                     cv2.rectangle(frame, (bb[i][0], bb[i][1]), (bb[i][2], bb[i][3]), (0, 255, 0), 2)
                                     text_x = bb[i][0]
                                     text_y = bb[i][3] + 20
@@ -156,7 +147,7 @@ def main():
                                     person_detected[best_name] += 1
 
                                     # Khi nhận ra mặt là sẽ tự động điểm danh
-                                    add_attendance(name)
+                                    add_attendance(best_name)
 
                                 else:
                                     name = "Unknown"
@@ -176,4 +167,4 @@ def main():
             cap.stream.release()
             cv2.destroyAllWindows()
 
-main()
+#main()
