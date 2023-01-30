@@ -1,0 +1,10 @@
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_3.png 254 206 395 358
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_1.png 276 212 415 392
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_2.png 209 217 333 381
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_9.png 244 210 383 367
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_6.png 242 274 393 439
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_5.png 246 266 400 439
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_4.png 252 231 401 407
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_0.png 228 213 374 387
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_8.png 261 219 393 367
+Dataset/FaceData/processed\Nguyen_Sy_Duy_20203691\Nguyen_Sy_Duy_7.png 276 217 416 382

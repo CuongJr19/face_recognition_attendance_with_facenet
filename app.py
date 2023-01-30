@@ -1,7 +1,6 @@
 from flask import Flask, request, render_template
 from datetime import datetime, date
 import os
-import sqlite3
 import pandas as pd
 from sqlite3 import Error
 import cv2
@@ -9,11 +8,11 @@ import classifier
 import align_dataset_mtcnn
 import face_reg_attendance
 
+import sqlite3
 
 ### Defining Flask App
 app = Flask(__name__)
 
-error_statement = None
 
 def datetoday():
     return date.today().strftime("%m_%d_%y")
@@ -26,6 +25,7 @@ def datetoday2():
 #### If these directories don't exist, create them
 if not os.path.isdir('Attendance'):
     os.makedirs('Attendance')
+
 
 if f'Attendance-{datetoday()}.csv' not in os.listdir('Attendance'):
     with open(f'Attendance/Attendance-{datetoday()}.csv', 'w') as f:
@@ -95,22 +95,6 @@ def insert_student(con, mssv, name):
         cursorObj.execute('INSERT INTO Students(mssv, name) VALUES(?, ?)', (mssv, name))
         con.commit()
 
-def students_in_class():
-    con = sqlite3.connect("Students.db")
-
-    pass
-
-'''
-Bổ sung thêm 2 hàm ghi sinh viên ra file csv sau khi được điểm danh
-'''
-
-def check_mssv(mssv):
-    try:
-        val = int(mssv)
-        return True
-    except ValueError:
-        return False
-
 
 ######################### ROUTING FUNCTIONS ##########################
 #### Our main page
@@ -118,7 +102,7 @@ def check_mssv(mssv):
 def home():
     names, rolls, times, l = extract_attendance()
     return render_template('home.html',  names=names, rolls=rolls, times=times, l=l,
-                           totalreg=number_of_Student(), datetoday2=datetoday2(), error_statement=error_statement)
+                           totalreg=number_of_Student(), datetoday2=datetoday2())
 
 
 #### This function will run when we click on Take Attendance Button
@@ -130,7 +114,7 @@ def start():
     face_reg_attendance.main()
     names, rolls, times, l = extract_attendance()
     return render_template('home.html', names=names, rolls=rolls, times=times, l=l, totalreg=number_of_Student(),
-                           datetoday2=datetoday2(), error_statement=error_statement)
+                           datetoday2=datetoday2())
 
 
 #### This function will run when we add a new user
@@ -146,11 +130,10 @@ def add():
     mssv = request.form['newuserMSSV']
 
     names, rolls, times, l = extract_attendance()
-    if len(mssv) != 8 & check_mssv(int(mssv)) & check_data(con, mssv):
-        error_statement = "MSSV is not valid"
-        return render_template('home.html', names=names, rolls=rolls, times=times, l=l,
-                               totalreg=number_of_Student(), datetoday2=datetoday2(),
-                               error_statement=error_statement)
+    print((len(mssv) == 8), check_data(con, mssv))
+    if not ((len(mssv) == 8) & check_data(con, mssv)):
+        return render_template('home.html', totalreg=number_of_Student(), datetoday2=datetoday2(),
+                               mess='MSSV is not valid!!!.')
 
     # Tạo bảng và nạp dữ liệu với tên được chuẩn hóa
     sql_table(con)
@@ -219,8 +202,7 @@ def add():
     classifier.classifier()
     names, rolls, times, l = extract_attendance()
     return render_template('home.html', names=names, rolls=rolls, times=times, l=l,
-                           totalreg=number_of_Student(), datetoday2=datetoday2(),
-                           error_statement=error_statement)
+                           totalreg=number_of_Student(), datetoday2=datetoday2())
 
 
 
