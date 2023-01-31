@@ -1,0 +1,10 @@
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_0.png 213 186 400 404
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_1.png 216 186 400 400
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_2.png 205 186 390 401
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_3.png 206 181 398 404
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_4.png 215 183 400 398
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_5.png 216 183 402 399
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_6.png 208 182 398 404
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_7.png 212 183 397 399
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_8.png 205 181 396 401
+Dataset/FaceData/processed\Truong_Quang_Huy_20203459\Truong_Quang_Huy_9.png 211 183 395 399
